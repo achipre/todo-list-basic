@@ -1,4 +1,5 @@
-( () => {
+import checkComplete from "./componentes/checkComplete.js";
+import deleteBtn from "./componentes/deleteIcon.js";
   // Selection: Button
 const btn = document.querySelector('[data-form-btn]');
 // Selection: Input
@@ -21,22 +22,20 @@ const crearTarea = (e) => {
   
   // Agregar el contenido generado en el ul 
   taskContent.appendChild(checkComplete());
+  // Agregar el contenido e=generado en el ul 
+  taskContent.appendChild(titleTask);
+  // Agregar el contenido generado en el ul 
   // Agregar la clase card a la lista li recien creada
   task.classList.add('card');
   // Crear contenido con el input ingresado
   titleTask.classList.add('task');
-  // Crear contenido con el input ingresado
-  const content = `<i class="fas fa-trash-alt trashIcon icon"></i>`;
-  // Agregar la tarea generada al HTML
-  task.innerHTML = content;
   // Agregar la tarea generada al HTML
   titleTask.innerText = input.value;
-  // Agregar el contenido e=generado en el ul 
-  taskContent.appendChild(titleTask);
   // Agregar el contenido e=generado en el ul 
   list.appendChild(task);
   // Agregar el contenido e=generado en el ul 
   task.appendChild(taskContent);
+  task.appendChild(deleteBtn());
   // Borrar el input al dar click
   input.value = '';
   // Enfoca al inputa al dar click en boton
@@ -45,17 +44,4 @@ const crearTarea = (e) => {
 
 btn.addEventListener('click', crearTarea);
 
-const checkComplete = () => {
-  const i = document.createElement('i');
-  i.classList.add('far', 'fa-check-square', 'icon');
-  i.addEventListener('click', completeTask)
 
-  return i
-};
-const completeTask = (e) => {
-  const elemet = e.target;
-  elemet.classList.toggle('fas')
-  elemet.classList.toggle('completeIcon')
-  elemet.classList.toggle('far')
-};
-})();

@@ -6,8 +6,8 @@ const checkComplete = () => {
   return i
 };
 const completeTask = (e) => {
-  elemet.classList.toggle('fas')
   const elemet = e.target;
+  elemet.classList.toggle('fas')
   elemet.classList.toggle('completeIcon')
   elemet.classList.toggle('far')
 };
